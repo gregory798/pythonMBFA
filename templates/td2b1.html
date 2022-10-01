@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td2">TD2</a> / <a href="/td2/bonus1">Bonus 1</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>On dispose d'une feuille de papier d'épaisseur 0,1 mm. Combien de fois doit-on la plier au
+        minimum pour que l'épaisseur dépasse la hauteur de la tour Eiffel 324 m. Écrire un programme en
+        Python pour résoudre ce problème.</h5>
+        <p>Soit $e$ l'épaisseur et $h$ la hauteur, on cherche le nombre de pli $p$ tel que $e \geq h$, sachant que lorsque $p$ augmente de 1, $e$ double, si l'on admet un pliage de cette forme :</p>
+        <p class="text-center"><img src="https://proto.vdt-hosting.fr/icso-wp/wp-content/uploads/1-pli.png" alt="pliage" width="5%"
+            class="text-center"></p>
+
+        <p>1er pli : $e = 2$</p>
+        <p>2ème pli : $e = 4$</p>
+        <p>3ème pli : $e = 8$</p>
+        <p>p-ème pli : $e = 2^p$</p>
+
+        <p>On cherche alors $p$ :</p>
+
+        <div>
+            $$\begin{equation}
+            e \geq h
+            \end{equation}$$
+
+            $$\begin{equation}
+            2^p \geq h
+            \end{equation}$$
+
+            $$\begin{equation}
+            p \ln 2 \geq \ln h
+            \end{equation}$$
+
+            $$\begin{equation}
+            p  \geq \frac{\ln h}{\ln 2}
+            \end{equation}$$
+        </div>
+
+        <p>à condition que $e$ et $h$ soient dans la même unité de mesure.</p>
+        <p>On peut donc arrondir à l'entier supérieur dès que la partie décimale est supérieure à 0.</p>
+        <p>Dans cet exercice si $e = 1$, alors $h = 3 240 000$ car(1m = 1000mm)$\times 10$ car la feuille est de 0.1mm.</p>
+
+        <div></div>
+
+
+        
+
+        <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">$f(x) = \frac{\ln h}{\ln 2}$</span>
+                </div>
+            <input type="number" class="form-control" placeholder="Hauteur (Ex : 3240000) (sachant que l'épaisseur est fixée à 1)" hx-get="/td2/bonus1/hauteur" name="q"
+                hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+    </div>
+
+
+
+        <div class="card">
+            <h5>Ecrire une fonction
+                <pre><code class="language-python">nb_plis(epaisseur, hauteur)</code></pre> qui renvoie le nombre de plis minimum pour
+            atteindre une hauteur donnée pour une épaisseur donnée.
+            </h5>
+            <p>Cela signifie que maintenant $e \neq$ 1 et que l'on doit rapporter $e$ à 1 avec un produit en croix pour obtenir le $h$ lorsque $e = 1$.</p>
+            <p>Le point fait office de virgule française /!\</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="0.1/324 000" hx-get="/td2/bonus1/epaisseur" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+            </div>
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans2">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+</section>
+
+
+{% endblock %}

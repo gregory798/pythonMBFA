@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td2">TD2</a> / <a href="/td2/bonus3">Bonus 3</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Définir la fonction 
+        <pre><code class="language-python">decompose_chaine(s)</code></pre> 
+        qui, étant donnée une chaîne de caractères s,
+        renvoie 2 chaines de caractères :
+        <ul>
+            <li>s_alpha : la chaîne de caractères formée de toutes les lettres de s</li>
+            <li>s_num : la chaîne de caractères formée de tous les chiffres de s</li>
+        </ul>
+        Utilisez les fonctions 
+        <pre><code class="language-python">str.isalpha()</code></pre> et 
+        <pre><code class="language-python">str.isdigit()</code></pre> qui permettent de
+        déterminer respectivement si la chaîne str est composée de caractères alphabétiques ou
+        numériques.</h5>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="hello0101world0101" hx-get="/td2/exercice1/s" name="q"
+                hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock %}

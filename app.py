@@ -40,6 +40,45 @@ def td2e3():
 def td2e4():
     return render_template('td2e4.html')
 
+@app.route('/td2/bonus1')
+def td2b1():
+    return render_template('td2b1.html')
+
+@app.route('/td2/bonus1/hauteur')
+def td2b1hauteur():
+    try:
+        q = int(request.args.get("q"))
+        return str(func.nb_plis_fixed(q))
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td2/bonus1/epaisseur')
+def td2e4epaisseur():
+    try:
+        q = request.args.get("q")
+        r = re.compile('.*/.*')
+        if r.match(q) is not None:
+            eh = q.split("/")
+            try:
+                e = float(eh[0])
+                h = float(eh[1])
+                return str(func.nb_plis(e, h))
+            except:
+                return "Veuillez entrer des nombres uniquement !"
+        else:
+            return "Format : &lt;float&gt;,&lt;float&gt; (Ex : 0.1/324 000)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td2/bonus2')
+def td2b2():
+    return render_template('td2b2.html')
+
+
+@app.route('/td2/bonus3')
+def td2b3():
+    return render_template('td2b3.html')
+
 @app.route('/td2/exercice4/factorielle')
 def td2e4factorielle():
     try:

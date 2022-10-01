@@ -1,4 +1,5 @@
 import random
+import math
 
 def conv_sec(h, m, s):
     return h*3600 + m *60 + s
@@ -86,3 +87,9 @@ def combis_rapide(n,k):
         nb_ops += 2
         n -= 1
     return prod, nb_ops
+
+def nb_plis_fixed(hauteur):
+    return math.ceil(math.log(hauteur) / math.log(2))
+
+def nb_plis(epaisseur,hauteur):
+    return math.ceil(math.log(hauteur/epaisseur) / math.log(2))
