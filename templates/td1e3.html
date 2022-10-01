@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
+<div class="mt-5">
+    <a href="/td1">TD1</a> / <a href="/td1/exercice3">Exercice 3</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Rectangle</h5>
+
+            <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Votre couleur préférée</span>
+    </div>
+    <input type="text" class="form-control" placeholder="mauve" hx-get="/td1/exercice3/couleur" name="q"
+        hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+            
+        </div>
+        <pre><code class="language-bash" id="ans1"></code></pre>
+        <p>Ma méthode:</p>
+        <p>Longeur = len(s)</p>
+        <p>Largeur = len(s)-2</p>
+    </div>
+    
+
+
+
+</section>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"
+        integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"
+        integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous">
+        </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous">
+        </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+{% endblock %}

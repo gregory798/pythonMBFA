@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
+<div class="mt-5">
+    <a href="/td1">TD1</a> / <a href="/td1/exercice4">Exercice 4</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Le volume d’une sphère de rayon r est $\frac{4}{3}\pi r^3$. Quel est le volume d'une sphère de rayon 5 ?</h5>
+
+            <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Volume</span>
+    </div>
+    <input type="number" class="form-control" placeholder="5" hx-get="/td1/exercice4/volume" name="q"
+        hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+            
+        </div>
+        Réponse
+        <div id="ans1">(rentrez une valeur ci-dessus)</div>
+    </div>
+
+        <div class="card">
+            <h5>Supposons que le prix de vente d'un livre soit de 24,95€, mais que les librairies
+            bénéficient d'une réduction de 40%. La livraison coûte 3€ pour le premier
+            exemplaire et 75 centimes pour chaque copie supplémentaire. Quel est le prix de
+            gros total pour 60 exemplaires ?</h5>
+        
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Exemplaires</span>
+                </div>
+                <input type="number" class="form-control" placeholder="60" hx-get="/td1/exercice4/livres" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+        
+            </div>
+            Réponse
+            <div id="ans2">(rentrez une valeur ci-dessus)</div>
+        </div>
+    
+
+
+
+</section>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"
+        integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"
+        integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous">
+        </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous">
+        </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+{% endblock %}

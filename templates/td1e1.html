@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-5">
+    <a href="/td1">TD1</a> / <a href="/td1/exercice1">Exercice 1</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Combien de secondes y a-t-il dans 42 minutes et 42 secondes ?</h5>
+
+        <div>
+            $$\begin{equation}
+            f(x,y) = 60x+y
+            \end{equation}$$
+        </div>
+        
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="42:42" hx-get="/td1/exercice1/minutes" name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans11">
+        <!-- <input type="text" class="form-control" placeholder="Réponse" disabled id="ans1"> -->
+        
+    </div>
+    <div>
+        <h5>Réponse</h5>
+        <div id="ans11">(entrez une valeur ci-dessus)</div>
+    </div>
+
+    </div>
+
+
+    <div class="card">
+        <h5>Combien de miles représentent 10 km ? (1 mile = 1.61 km)</h5>
+    
+        <div>
+            $$\begin{equation}
+            g(z) = \frac{z}{1.61}
+            \end{equation}$$
+        </div>
+    
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="10" hx-get="/td1/exercice1/miles" name="q"
+                hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+            <!-- <input type="text" class="form-control" placeholder="Réponse" disabled id="ans1"> -->
+    
+        </div>
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans2">(entrez une valeur ci-dessus)</div>
+        </div>
+    </div>
+
+
+        <div class="card">
+            <h5>Si vous courez une course de 10 km en 42 minutes et 42 secondes, quel est votre
+            rythme moyen (temps par mile en minutes et secondes) ?</h5>
+        
+            <div>
+                $\gamma_1 = \frac{f(x,y)}{g(z)} / 60$ (la partie entière) <br>
+                $\gamma_2 = \frac{f(x,y)}{g(z)} / 60$ (la partie décimale) <br>
+                $\Gamma = \gamma_1 \:minutes\: et \: 60\times\gamma_2 \: secondes\:$
+            </div>
+        
+            <!-- <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="42:42" hx-get="/td1/exercice1/minutes" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans1">        
+            </div> -->
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans1">$\Gamma$</div>
+            </div>
+        </div>
+
+
+</section>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"
+        integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"
+        integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous">
+        </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous">
+        </script>
+
+{% endblock %}

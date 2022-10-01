@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
+<div class="mt-5">
+    <a href="/td1">TD1</a> / <a href="/td1/exercice5">Exercice 5</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Écrivez une fonction <pre><code class="language-python">conv_sec(h, m, s)</code></pre> qui prend en paramètre un horaire
+        passé avec ses heures, minutes, et secondes et retourne cet horaire converti en secondes.</h5>
+
+            <div>
+                $$\begin{equation}
+                f(x,y,z)=3600x+60y+z
+                \end{equation}$$
+            </div>
+
+            <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Horaire</span>
+    </div>
+
+    <input type="text" class="form-control" placeholder="10:10:10" hx-get="/td1/exercice5/heure" name="q"
+        hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+            
+        </div>
+        Réponse
+        <div id="ans1"></div>
+    </div>
+
+        <div class="card">
+            <h5>En utilisant cette fonction, saisissez deux horaires (heures, minutes, secondes) et
+            calculez le temps (en secondes) écoulé entre les deux.
+            </h5>
+
+                        <div>
+                            $$\begin{equation}
+                            g(x_1,y_1,z_1,x_2,y_2,z_2)=f(x_1,y_1,z_1)-f(x_2,y_2,z_2)
+                            \end{equation}$$
+                        </div>
+        
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Horaires</span>
+                </div>
+                <input type="text" class="form-control" placeholder="10:10:10-05:05:05" hx-get="/td1/exercice5/delta" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+        
+            </div>
+            Réponse
+            <div id="ans2"></div>
+        </div>
+    
+
+
+
+</section>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"
+        integrity="sha384-ZPe7yZ91iWxYumsBEOn7ieg8q/o+qh/hQpSaPow8T6BwALcXSCS6C6fSRPIAnTQs" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"
+        integrity="sha384-ljao5I1l+8KYFXG7LNEA7DyaFvuvSCmedUf6Y6JI7LJqiu8q5dEivP2nDdFH31V4" crossorigin="anonymous">
+        </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"
+        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous">
+        </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+{% endblock %}
