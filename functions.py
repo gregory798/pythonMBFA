@@ -52,3 +52,37 @@ def frequence_valeur(r,n):
         if lancer_de6() == r:
             freq += 1
     return freq/n
+
+def factorielle(n):
+    factorielle = 1
+    nb_ops = 0
+    for i in range(1, n+1):
+        factorielle *= i
+        nb_ops += 1
+    return factorielle, nb_ops
+
+def combinaisons(n,k):
+    n1 = factorielle(n)[0]
+    n1_mult = factorielle(n)[1]
+
+    k1 = factorielle(k)[0]
+    k1_mult = factorielle(k)[1]
+
+    n_k = factorielle(n-k)[0]
+    n_k_mult = factorielle(n-k)[1]
+
+    print(n1_mult, k1_mult, n_k_mult)
+
+    ans = n1 // (k1*n_k)
+    nb_ops = n1_mult + k1_mult + n_k_mult
+    return ans, nb_ops
+
+def combis_rapide(n,k):
+    prod = 1   
+    nb_ops = 0
+    for i in range(1, min(k, n - k) + 1):
+        prod *= n
+        prod //= i
+        nb_ops += 2
+        n -= 1
+    return prod, nb_ops

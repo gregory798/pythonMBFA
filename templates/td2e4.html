@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td2">TD2</a> / <a href="/td2/exercice4">Exercice 4</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Factorielle</h5>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$f(x) = x!$</span>
+            </div>
+            <input type="number" class="form-control" placeholder="8" hx-get="/td2/exercice4/factorielle" name="q"
+                hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+    </div>
+
+        <div class="card">
+            <h5>$\binom nk = \frac{n!}{k!(n-k)!}$</h5>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">$g(n,k) = \binom nk$</span>
+                </div>
+                <input type="text" class="form-control" placeholder="5,3" hx-get="/td2/exercice4/combinaisons" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+            </div>
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans2">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5>Quel est le nombre de multiplications effectuées pour calculer $\binom nk$ ?</h5>
+            <p>Il y en a d'abord $n$ (au numérateur).</p>
+            <p>On y ajoute le nombre de multiplications pour $k!$ qui est $k$.</p>
+            <p>Puis on y ajoute le nombre de multiplications pour $(n-k)!$ qui est $n-k$.</p>
+            <p>On cherche $m$ le nombre de multiplications :</p>
+            <div>
+                $$\begin{equation}
+                m = n + k + n - k
+                \end{equation}$$
+                $$\begin{equation}
+                m = n + n
+                \end{equation}$$
+                $$\begin{equation}
+                m = 2n
+                \end{equation}$$
+            </div>
+            <p>Il y a $2n$ multiplications.</p>
+        </div>
+
+
+        <div class="card">
+            <h5>Avec la formule multiplicative</h5>
+            <div>
+                            $$\begin{equation}
+                            \frac{n(n - 1)\dots(n - (k - 1))}{k(k-1)(k-2)\dots(1)} =
+                            \prod_{i = 1}^{k}\frac{n + 1 - i}{i}
+                            \end{equation}$$
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">$g(n,k) = \binom nk$</span>
+                </div>
+                <input type="text" class="form-control" placeholder="5,3" hx-get="/td2/exercice4/combis_rapide" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans3">
+            </div>
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans3">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5>Combiens d’opérations (multiplications et divisons) sont effectuées ? Comparez avec la
+            version précédente.</h5>
+            <p>Il y a une multiplication et une division par itération.</p>
+            <p>Le nombre d'itérations est le minimum entre $k$ et $n-k$.</p>
+            <p>Donc $2k$ ou $2(n-k).$</p>
+        </div>
+
+
+
+</section>
+
+
+{% endblock %}

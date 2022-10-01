@@ -36,6 +36,63 @@ def td2e2():
 def td2e3():
     return render_template('td2e3.html')
 
+@app.route('/td2/exercice4')
+def td2e4():
+    return render_template('td2e4.html')
+
+@app.route('/td2/exercice4/factorielle')
+def td2e4factorielle():
+    try:
+        q = int(request.args.get("q"))
+        ans = func.factorielle(q)[0]
+        nb_ops = func.factorielle(q)[1]
+        return f"{ans} ({nb_ops} opérations)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td2/exercice4/combinaisons')
+def td2e4combinaisons():
+    try:
+        q = request.args.get("q")
+        r = re.compile('.*,.*')
+        if r.match(q) is not None:
+            nk = q.split(",")
+            try:
+                n = int(nk[0])
+                k = int(nk[1])
+                if k > n:
+                    return "k ne peut être supérieur à n !"
+                else:
+                    return f"{func.combinaisons(n,k)[0]} ({func.combinaisons(n,k)[1]}) multiplications"
+            except:
+                return "Veuillez entrer des entiers uniquement !"
+        else:
+            return "Format : &lt;int&gt;,&lt;int&gt; (Ex : 5,3)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+
+@app.route('/td2/exercice4/combis_rapide')
+def td2e4combis_rapide():
+    try:
+        q = request.args.get("q")
+        r = re.compile('.*,.*')
+        if r.match(q) is not None:
+            nk = q.split(",")
+            try:
+                n = int(nk[0])
+                k = int(nk[1])
+                if k > n:
+                    return "k ne peut être supérieur à n !"
+                else:
+                    return f"{func.combis_rapide(n,k)[0]} ({func.combis_rapide(n,k)[1]}) opérations"
+            except:
+                return "Veuillez entrer des entiers uniquement !"
+        else:
+            return "Format : &lt;int&gt;,&lt;int&gt; (Ex : 5,3)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
 @app.route('/td2/exercice3/lancer_de')
 def td2e3lancer_de():
     return str(func.lancer_de6())
