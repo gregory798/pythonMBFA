@@ -12,6 +12,15 @@ def index():
 def td1():
     return render_template('td1.html')
 
+
+@app.route('/td2')
+def td2():
+    return render_template('td2.html')
+
+@app.route('/td2/exercice1')
+def td2e1():
+    return render_template('td2e1.html')
+
 @app.route('/td1/exercice1')
 def td1e1():
     return render_template('td1e1.html')
@@ -35,6 +44,11 @@ def td1e5():
 @app.route('/td1/exercice6')
 def td1e6():
     return render_template('td1e6.html')
+
+@app.route('/td2/exercice1/s')
+def td2e1s():
+    q = request.args.get("q")
+    return str(func.decompose_chaine(q))
 
 @app.route('/td1/exercice6/bonjour')
 def td1e5bonjour():
