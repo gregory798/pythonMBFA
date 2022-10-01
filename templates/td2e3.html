@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td2">TD2</a> / <a href="/td2/exercice3">Exercice 3</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Définir la fonction
+        <pre><code class="language-python">lancer_de6()</code></pre>sans argument, qui simule le lancer dé à 6 faces : cette
+        fonction renvoie, à chaque appel, une valeur entière comprise entre 1 et 6.
+        Utilisez la fonction 
+        <pre><code class="language-python">math.floor(x)</code></pre> qui renvoie la valeur de l’entier le plus proche de x
+        qui lui est inférieur (autrement dit, la partie entière de x). Pour l’utiliser, il faut importer le
+        module
+        <pre><code class="language-python">math</code></pre></h5>
+        <button class="btn btn-primary" hx-get="/td2/exercice3/lancer_de"
+                hx-trigger="click" hx-target="#ans1">Lancer le dé 🎲</button>
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(lancez d'abord le dé 🎲)</div>
+        </div>
+    </div>
+
+        <div class="card">
+            <h5>Moyenne d’une série de lancers de dés. Définir la fonction
+            <pre><code class="language-python">moyenne_serie_lancers(n)</code></pre>qui, étant donné un entier naturel non nul n, retourne
+            la moyenne obtenue en lançant n fois un dé à 6 faces, à l’aide de la fonction précédente.
+            Vous pouvez vérifier que la moyenne sur un grand nombre de lancers (100 000 par
+            exemple) est proche de 3.5.
+            </h5>
+            <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Nombre de lancers</span>
+                    </div>
+                <input type="number" class="form-control" placeholder="100000" hx-get="/td2/exercice3/moyenne" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+            </div>
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans2">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h5>Pour vérifier que la fréquence d’apparition de chaque face est de 1/6, définissez la fonction
+            <pre><code class="language-python">frequence_valeur(r,n)</code></pre>
+             qui, étant donné un entier naturel r compris entre 1 et 6, et
+            un entier naturel non nul n, retourne la fréquence d’apparition de la valeur r après n
+            lancers d’un dé à 6 faces effectués par la fonction 
+            <pre><code class="language-python">lancer_de6()</code></pre>Comparez la
+            fréquence d’apparition de 1 sur 1 lancer, puis 10 lancers, 100, 1000, 10 000, 100 000… avec
+            1/6.
+            </h5>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">$f(r, n)\\r = 1,2...6\\n \in \N^*$</span>
+                </div>
+                <input type="text" class="form-control" placeholder="1,100" hx-get="/td2/exercice3/rn" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans3">
+            </div>
+            <div>
+                <h5>Réponse ($\frac{1}{6} \approx 0.16666$)</h5>
+                <div id="ans3">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+</section>
+
+
+{% endblock %}

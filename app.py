@@ -32,6 +32,40 @@ def td2e2():
     else:
         return render_template('td2e2.html', ans="(entrez une valeur ci-dessus)")
 
+@app.route('/td2/exercice3')
+def td2e3():
+    return render_template('td2e3.html')
+
+@app.route('/td2/exercice3/lancer_de')
+def td2e3lancer_de():
+    return str(func.lancer_de6())
+
+@app.route('/td2/exercice3/moyenne')
+def td2e3moyenne():
+    try:
+        q = int(request.args.get("q"))
+        return str(func.moyenne_serie_lancers(q))
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td2/exercice3/rn')
+def td2e3rn():
+    try:
+        q = request.args.get("q")
+        r = re.compile('.*,.*')
+        if r.match(q) is not None:
+            rn = q.split(",")
+            try:
+                r = int(rn[0])
+                n = int(rn[1])
+                return str(func.frequence_valeur(r,n))
+            except:
+                return "Veuillez entrer des entiers uniquement !"
+        else:
+            return "Format : &lt;int&gt;,&lt;int&gt; (Ex : 5,2365)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
 @app.route('/td1/exercice1')
 def td1e1():
     return render_template('td1e1.html')
