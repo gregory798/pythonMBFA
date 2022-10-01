@@ -93,3 +93,12 @@ def nb_plis_fixed(hauteur):
 
 def nb_plis(epaisseur,hauteur):
     return math.ceil(math.log(hauteur/epaisseur) / math.log(2))
+
+def flechettes(nb_tirs, somme):
+    choices = ""
+    for x in range(nb_tirs):
+        for y in range(nb_tirs):
+            if 50*x+20*y == somme and x+y<=nb_tirs:
+                z = 10-x-y
+                choices += "[50] " * x + "[20] " * y + "[0] " * z + f"<-- SOMME = {somme} <br>"
+    return choices

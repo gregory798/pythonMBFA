@@ -53,7 +53,7 @@ def td2b1hauteur():
         return f"Erreur : {e}"
 
 @app.route('/td2/bonus1/epaisseur')
-def td2e4epaisseur():
+def td2b1epaisseur():
     try:
         q = request.args.get("q")
         r = re.compile('.*/.*')
@@ -66,7 +66,25 @@ def td2e4epaisseur():
             except:
                 return "Veuillez entrer des nombres uniquement !"
         else:
-            return "Format : &lt;float&gt;,&lt;float&gt; (Ex : 0.1/324 000)"
+            return "Format : &lt;float&gt;/&lt;float&gt; (Ex : 0.1/324 000)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td2/bonus2/flechettes')
+def td2b2flechettes():
+    try:
+        q = request.args.get("q")
+        r = re.compile('.*,.*')
+        if r.match(q) is not None:
+            ns = q.split(",")
+            try:
+                n = int(ns[0])
+                s = int(ns[1])
+                return func.flechettes(n,s)
+            except:
+                return "Veuillez entrer des entiers uniquement !"
+        else:
+            return "Format : &lt;int&gt;,&lt;int&gt; (Ex : 10,300)"
     except Exception as e:
         return f"Erreur : {e}"
 
