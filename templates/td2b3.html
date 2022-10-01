@@ -9,21 +9,14 @@
 <section class="mt-5 text-center">
 
     <div class="card">    
-        <h5>Définir la fonction 
-        <pre><code class="language-python">decompose_chaine(s)</code></pre> 
-        qui, étant donnée une chaîne de caractères s,
-        renvoie 2 chaines de caractères :
-        <ul>
-            <li>s_alpha : la chaîne de caractères formée de toutes les lettres de s</li>
-            <li>s_num : la chaîne de caractères formée de tous les chiffres de s</li>
-        </ul>
-        Utilisez les fonctions 
-        <pre><code class="language-python">str.isalpha()</code></pre> et 
-        <pre><code class="language-python">str.isdigit()</code></pre> qui permettent de
-        déterminer respectivement si la chaîne str est composée de caractères alphabétiques ou
-        numériques.</h5>
+        <h5>Écrire un programme en Python pour déterminer une valeur approchée de l'aire sous la courbe
+        de la fonction carrée sur [0;1] en utilisant la méthode de Monte-Carlo, puis sur [0;2].</h5>
+        <p>On génère des points dans un plans avec des coordonnées, puis on fait le ratio entre les points dont les coordonnées y sont inférieures ou égales à x² et le nombre total de points générés.</p>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="hello0101world0101" hx-get="/td2/exercice1/s" name="q"
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">borne supérieure, nombre d'itérations</span>
+            </div>
+            <input type="text" class="form-control" placeholder="1,10000" hx-get="/td2/bonus2/aire" name="q"
                 hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
         </div>
         <div>

@@ -102,3 +102,18 @@ def flechettes(nb_tirs, somme):
                 z = 10-x-y
                 choices += "[50] " * x + "[20] " * y + "[0] " * z + f"<-- SOMME = {somme} <br>"
     return choices
+
+def aire(borne_sup, n):
+    nb_point_sous_la_courbe = 0
+
+    for _ in range(n):
+        x_axis = random.uniform(0, borne_sup)
+        y_axis = random.uniform(0, borne_sup**2)
+        if x_axis**2>y_axis:
+            nb_point_sous_la_courbe += 1
+    
+    longueur = borne_sup**2 
+    largeur = borne_sup
+
+    aire_approx = longueur*largeur*nb_point_sous_la_courbe/n
+    return aire_approx

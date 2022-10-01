@@ -88,6 +88,25 @@ def td2b2flechettes():
     except Exception as e:
         return f"Erreur : {e}"
 
+
+@app.route('/td2/bonus2/aire')
+def td2b2aire():
+    try:
+        q = request.args.get("q")
+        r = re.compile('.*,.*')
+        if r.match(q) is not None:
+            bn = q.split(",")
+            try:
+                b = float(bn[0])
+                n = int(bn[1])
+                return str(func.aire(b, n))
+            except:
+                return "Veuillez entrer des nombres uniquement !"
+        else:
+            return "Format : &lt;float&gt;,&lt;int&gt; (Ex : 1,10000)"
+    except Exception as e:
+        return f"Erreur : {e}"
+
 @app.route('/td2/bonus2')
 def td2b2():
     return render_template('td2b2.html')
@@ -242,7 +261,6 @@ def td1e5delta():
     if r.match(q) is not None:
         horaires = q.split(":")
         try:
-            print(horaires)
             h1 = int(horaires[0])
             m1 = int(horaires[1])
             s1 = int(horaires[2].split("-")[0])
