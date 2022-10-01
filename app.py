@@ -21,6 +21,17 @@ def td2():
 def td2e1():
     return render_template('td2e1.html')
 
+@app.route('/td2/exercice2', methods=['GET', 'POST'])
+def td2e2():
+    if "submit_ex_2" in request.form:
+        motif1 = request.form.get("motif1")
+        motif2 = request.form.get("motif2")
+        s = request.form.get("s")
+        s = func.cherche_et_remplace(motif1, motif2, s)
+        return render_template('td2e2.html', ans=s)
+    else:
+        return render_template('td2e2.html', ans="(entrez une valeur ci-dessus)")
+
 @app.route('/td1/exercice1')
 def td1e1():
     return render_template('td1e1.html')

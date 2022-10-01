@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td2">TD2</a> / <a href="/td2/exercice2">Exercice 2</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Définir une fonction 
+        <pre><code class="language-python">cherche_et_remplace(motif1, motif2, s)</code></pre>
+        qui, si la sous-chaîne
+        motif1 apparaît dans la chaîne s, modifie s en remplaçant le motif1 par le motif2, sinon renvoie
+        s non modifié.
+        Utilisez les fonctions
+        <pre><code class="language-python">str.find()</code></pre> et 
+        <pre><code class="language-python">str.replace()</code></pre></h5>
+
+
+        <form method="POST">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="motif1 (Ex: jour)" name="motif1">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="motif2 (Ex: soir)" name="motif2">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="s (Ex: bonjour)" name="s">
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit_ex_2">Submit</button>
+            </div>
+        </form>
+        
+
+        <div>
+            <h5>Réponse</h5>
+            <div>{{ans}}</div>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock %}

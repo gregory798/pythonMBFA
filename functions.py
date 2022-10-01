@@ -26,3 +26,8 @@ def decompose_chaine(s):
         return alpha, ""
     else:
         return alpha, int(num)
+
+def cherche_et_remplace(motif1, motif2, s):
+    if s.find(motif1) != -1:
+        s = s.replace(motif1, motif2)
+    return s
