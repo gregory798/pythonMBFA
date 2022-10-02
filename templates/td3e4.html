@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td3">TD3</a> / <a href="/td3/exercice4">Exercice 4</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Définissez la fonction
+        <pre><code class="language-python">somme_chaine(s)</code></pre>qui, étant donné la chaîne $\mathcal{s}$, retourne la somme des
+        éléments de cette chaîne séparés par un espace.</h5>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$\mathcal{s}$</span>
+            </div>
+            <input type="text" class="form-control"
+                placeholder="1 2 3" hx-get="/td3/exercice4/somme"
+                name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

@@ -17,6 +17,123 @@ def td1():
 def td2():
     return render_template('td2.html')
 
+@app.route('/td3')
+def td3():
+    return render_template('td3.html')
+
+@app.route('/td3/exercice1')
+def td3e1():
+    return render_template('td3e1.html')
+
+@app.route('/td3/exercice2')
+def td3e2():
+    return render_template('td3e2.html')
+
+@app.route('/td3/exercice4')
+def td3e4():
+    return render_template('td3e4.html')
+
+
+@app.route('/td3/exercice4/somme')
+def td2e4somme():
+    try:
+        q = request.args.get("q")
+        return str(func.somme_chaine(q))
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td3/exercice1/moyenne')
+def td2e1moyenne():
+    try:
+        q = request.args.get("q")
+        lst = q.split(",")
+        try:
+            lst_moyenne = []
+            for l in lst:
+                lst_moyenne.append(float(l))
+            return str(func.liste_moyenne(lst_moyenne))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td3/exercice1/variance')
+def td2e1variance():
+    try:
+        q = request.args.get("q")
+        lst = q.split(",")
+        try:
+            lst_variance = []
+            for l in lst:
+                lst_variance.append(float(l))
+            return str(func.liste_variance(lst_variance))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td3/exercice2/produit')
+def td2e2produit():
+    try:
+        q = request.args.get("q")
+        lst = q.split(",")
+        try:
+            lst_produit= []
+            for l in lst:
+                lst_produit.append(float(l))
+            return str(func.liste_produit(lst_produit))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td3/exercice3', methods=['GET', 'POST'])
+def td3e3():
+    if "submit_ex_3_1" in request.form:
+        e1l1 = request.form.get("e1l1")
+        e1l2 = request.form.get("e1l2")
+        lst1 = e1l1.split(",")
+        lst2 = e1l2.split(",")
+
+
+        try:
+            L1= []
+            for l in lst1:
+                L1.append(int(l))
+            L2= []
+            for l in lst2:
+                L2.append(int(l))
+
+            ret_lst = str(func.entrelacement(L1, L2))
+            return render_template('td3e3.html', ans1=ret_lst, ans2="(rentrez des listes ci-dessus)")
+        except Exception as e:
+            return render_template('td3e3.html', ans1=f"Erreur : {e}", ans2="(rentrez des listes ci-dessus)")
+
+
+    elif "submit_ex_3_2" in request.form:
+        e2l1 = request.form.get("e2l1")
+        e2l2 = request.form.get("e2l2")
+        lst1 = e2l1.split(",")
+        lst2 = e2l2.split(",")
+        try:
+            L1= []
+            for l in lst1:
+                L1.append(int(l))
+            L2= []
+            for l in lst2:
+                L2.append(int(l))
+
+            ret_lst = str(func.entrelacement_general(L1, L2))
+            return render_template('td3e3.html', ans1="(rentrez des listes ci-dessus)", ans2=ret_lst)
+        except Exception as e:
+            return render_template('td3e3.html', ans1="(rentrez des listes ci-dessus)", ans2=f"Erreur : {e}")
+    else:
+        return render_template('td3e3.html', ans1="(rentrez des listes ci-dessus)", ans2="(rentrez des listes ci-dessus)")
+
+@app.route('/td4')
+def td4():
+    return render_template('td4.html')
+
 @app.route('/td2/exercice1')
 def td2e1():
     return render_template('td2e1.html')
@@ -139,7 +256,7 @@ def td2e4combinaisons():
                 if k > n:
                     return "k ne peut être supérieur à n !"
                 else:
-                    return f"{func.combinaisons(n,k)[0]} ({func.combinaisons(n,k)[1]}) multiplications"
+                    return f"{func.combinaisons(n,k)[0]} ({func.combinaisons(n,k)[1]} multiplications)"
             except:
                 return "Veuillez entrer des entiers uniquement !"
         else:
@@ -161,7 +278,7 @@ def td2e4combis_rapide():
                 if k > n:
                     return "k ne peut être supérieur à n !"
                 else:
-                    return f"{func.combis_rapide(n,k)[0]} ({func.combis_rapide(n,k)[1]}) opérations"
+                    return f"{func.combis_rapide(n,k)[0]} ({func.combis_rapide(n,k)[1]} opérations)"
             except:
                 return "Veuillez entrer des entiers uniquement !"
         else:

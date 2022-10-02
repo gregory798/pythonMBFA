@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td3">TD3</a> / <a href="/td3/exercice1">Exercice 1</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Écrivez la fonction 
+        <pre><code class="language-python">liste_moyenne(L)</code></pre> qui retourne la moyenne des éléments d’une liste
+        de $\mathcal{L}$ nombres.</h5>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$\mathcal{L}$</span>
+            </div>
+            <input type="text" class="form-control"
+                placeholder="1,2,3,4,5" hx-get="/td3/exercice1/moyenne"
+                name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+
+
+    </div>
+
+
+        <div class="card">
+            <h5>Récrivez la fonction
+            <pre><code class="language-python">liste_carres(L)</code></pre>du cours qui retourne la liste des éléments de $\mathcal{L}$ élevés
+            au carré. Utilisez-la, ainsi que la fonction 
+            <pre><code class="language-python">liste_moyenne(L)</code></pre>pour définir la fonction
+            <pre><code class="language-python">liste_variance(L)</code></pre>qui retourne la variance des éléments de la liste $\mathcal{L}$.</h5>
+
+            <p>En gros, on utilise la formule :</p>
+
+            <div>
+                $$\begin{equation}
+                V = (\frac{1}{n}\sum_{i=1}^{n} x_i^2) + \bar{x}^2
+                \end{equation}$$
+            </div>
+            
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">$\mathcal{L}$</span>
+                </div>
+                <input type="text" class="form-control" placeholder="1,2,3,4,5" hx-get="/td3/exercice1/variance" name="q"
+                    hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+            </div>
+            
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans2">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+
+</section>
+
+
+{% endblock %}

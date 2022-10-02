@@ -72,8 +72,6 @@ def combinaisons(n,k):
     n_k = factorielle(n-k)[0]
     n_k_mult = factorielle(n-k)[1]
 
-    print(n1_mult, k1_mult, n_k_mult)
-
     ans = n1 // (k1*n_k)
     nb_ops = n1_mult + k1_mult + n_k_mult
     return ans, nb_ops
@@ -117,3 +115,53 @@ def aire(borne_sup, n):
 
     aire_approx = longueur*largeur*nb_point_sous_la_courbe/n
     return aire_approx
+
+
+def liste_moyenne(L):
+    return sum(L)/len(L)
+
+
+def liste_carres(L):
+    L_2 = []
+    for l in L:
+        L_2.append(l**2)
+    return L_2
+
+def liste_variance(L):
+    return sum(liste_carres(L)) / len(L) - liste_moyenne(L)**2
+
+
+def liste_produit(L):
+    p = 1
+    for l in L:
+        p *= l
+    return p
+
+
+def entrelacement(L1, L2):
+    z = list(zip(L1,L2))
+    lst = []
+
+    for elem in z:
+        for e in elem:
+            lst.append(e)
+
+    return lst
+
+def entrelacement_general(L1, L2):
+    reste = []
+    if len(L1) < len(L2):
+        reste = L2[len(L1):]
+    elif len(L1) > len(L2):
+        reste = L1[len(L2):]
+            
+    return entrelacement(L1, L2) + reste
+
+
+def somme_chaine(s):
+    try:
+        lst = s.split(" ")
+        lst_int = (int(l) for l in lst)
+        return sum(lst_int)
+    except Exception as e:
+        return f"Erreur : {e}"
