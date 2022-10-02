@@ -266,5 +266,5 @@ def chargement_txt(fichier) :
     contenu = '' # str résultat
     with open(fichier, 'r') as f :
         contenu = f.read()
-    print(contenu)
+
     return contenu
