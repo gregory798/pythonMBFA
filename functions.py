@@ -240,3 +240,31 @@ def tous_dispos(panier, prix):
             flag = False
     
     return "Prix = " + str(prix) + f"<br><br><br>Panier = " + str(panier) + f"<br><br>Tous les produits sont disponibles ?<br><b>{flag}<b>"
+
+
+def freqs_lettres(s):
+    string = s
+    dic = {}
+
+    for s in string:
+        if s in dic.keys():
+            dic[s] +=1
+            continue
+        if s.isalpha():
+            dic[s] = 1
+            
+    return dic
+
+
+# Je n'utilise pas cette fonction, je lis directement depuis app.py
+def chargement_txt(fichier) :
+    """
+    :param fichier: le fichier est présent sur le disque
+    :return: renvoie la chaine de caractères correspondant
+    au contenu du fichier
+    """
+    contenu = '' # str résultat
+    with open(fichier, 'r') as f :
+        contenu = f.read()
+    print(contenu)
+    return contenu

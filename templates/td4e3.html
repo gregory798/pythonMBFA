@@ -9,16 +9,16 @@
 <section class="mt-5 text-center">
 
     <div class="card">    
-        <h5>Écrivez la fonction
-        <pre><code class="language-python">liste_produit(L)</code></pre>qui renvoie le produit des éléments d’une liste $\mathcal{L}$ de
-        nombres.</h5>
+        <h5>Définir la fonction
+        <pre><code class="language-python">freqs_lettres(s)</code></pre>qui, étant donné une chaîne de caractères $\mathcal{s}$
+        renvoie la fréquence des lettres de s sous la forme d’un dictionnaire décrit ci-dessus.</h5>
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">$\mathcal{L}$</span>
+                <span class="input-group-text" id="basic-addon1">$\mathcal{s}$</span>
             </div>
             <input type="text" class="form-control"
-                placeholder="1,2,3,4,5" hx-get="/td3/exercice2/produit"
+                placeholder="hello world" hx-get="/td4/exercice3/freqs"
                 name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
         </div>
 
@@ -26,8 +26,31 @@
             <h5>Réponse</h5>
             <div id="ans1">(entrez une valeur ci-dessus)</div>
         </div>
+    </div>
+
+    <div class="card">
+        <h5>Tester la fonction
+        <pre><code class="language-python">freqs_lettres(s)</code></pre>sur le
+        texte choisi.
+        </h5>
+
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="row">
+
+                        <div class="col">
+                            <input class="form-control" type="file" name="file">
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="submit_file">Analyser 👀</button>
+                    </div>
+                </form>
+        
 
 
+    
+        <div>
+            <h5>Réponse</h5>
+            <div>{{dic}}</div>
+        </div>
     </div>
 
 

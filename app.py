@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import re, math
 import functions as func
 
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -157,6 +158,25 @@ def td4e1nb_max():
 @app.route('/td4/exercice2')
 def td4e2():
     return render_template('td4e2.html')
+
+@app.route('/td4/exercice3', methods=['GET', 'POST'])
+def td4e3():
+    dic = ""
+    if "submit_file" in request.form:
+        file = request.files["file"]
+        text = file.read().decode('utf-8')
+        freqs = func.freqs_lettres(text)
+        return render_template('td4e3.html', dic=freqs)
+
+    return render_template('td4e3.html', dic=dic)
+
+@app.route('/td4/exercice3/freqs')
+def td4e3freqs():
+    try:
+        q = request.args.get("q")
+        return str(func.freqs_lettres(q))
+    except Exception as e:
+        return f"Erreur : {e}"
 
 @app.route('/td4/exercice2/dispo1')
 def td4e2dispo1():
