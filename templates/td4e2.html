@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td4">TD4</a> / <a href="/td4/exercice2">Exercice 2</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Donner une expression Python pour construire la base correspondant à la table ci-dessus.</h5>
+
+        <pre><code class="language-python">
+            dic = {
+                "produit_1" : prix_1,
+                "produit_2" : prix_2,
+                ...
+                "produit_n" : prix_n,
+            }
+        </code></pre>
+    </div>
+
+
+
+    <div class="card">
+        <h5>Définir la fonction
+        <pre><code class="language-python">disponibilite(prod, prix)</code></pre> qui, étant donné un nom de produit
+        prod et une base de prix prix, retourne True si le produit est présent dans la base, False
+        sinon.
+        </h5>
+
+        <p>D'accord, mais je n'ai pas compris à quoi servait prix dans ce cas. On cherche la présence d'un produit ou la présence d'un produit à un prix particulier ?</p>
+
+        <h6>Recherche de produit avec prix <b>quelconque</b> :</h6>
+    
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">produit, prix</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Sabre loser,229 (utiliser un point au lieu d'une virgule pour placer une virgule française)" hx-get="/td4/exercice2/dispo1" name="q"
+                hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+    
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+
+
+        <h6>Recherche de produit avec prix <b>particulier</b> :</h6>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">produit, prix</span>
+            </div>
+            <input type="text" class="form-control"
+                placeholder="Sabre loser,229 (utiliser un point au lieu d'une virgule pour placer une virgule française)"
+                hx-get="/td4/exercice2/dispo2" name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans2">
+        </div>
+        
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans2">(entrez une valeur ci-dessus)</div>
+        </div>
+    </div>
+
+
+        <div class="card">
+            <h5>
+                Définir la fonction <pre><code class="language-python">prix_moyen(prix)</code></pre>qui, étant donné une base de prix (avec au moins
+                un produit), retourne le prix moyen des produits disponibles.
+            </h5>
+        
+            <button class="btn btn-primary" hx-get="/td4/exercice2/prix_moyen" hx-trigger="click" hx-target="#ans3">Générer des
+                produits 📦</button>
+        
+            <div>
+                <h5>Réponse</h5>
+                <div id="ans3">(entrez une valeur ci-dessus)</div>
+            </div>
+        </div>
+
+
+
+            <div class="card">
+                <h5>Définir la fonction
+                <pre><code class="language-python">fourchette_prix(mini, maxi, prix)</code></pre>qui, étant donné un prix
+                minimum mini, un prix maximum maxi et une base de prix, retourne l’ensemble des
+                noms de produits disponibles dans cette fourchette.
+                </h5>
+            
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">borne inf, borne sup</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="100,1000000" hx-get="/td4/exercice2/fourchette" name="q"
+                        hx-trigger="keyup changed delay:500ms" hx-target="#ans4">
+                </div>
+            
+                <div>
+                    <h5>Réponse</h5>
+                    <div id="ans4">(entrez une valeur ci-dessus)</div>
+                </div>
+            </div>
+
+
+
+                <div class="card">
+                    <h5>Définir la fonction
+                    <pre><code class="language-python">tous_dispos(panier, prix)</code></pre> qui, étant donné un panier et une
+                    base de prix, retourne True si tous les produits demandés sont disponibles, False sinon.</h5>
+
+                    <p>Pour que l'exercice ait plus de sens, peut-être aurait-il fallu rajouter l'information des quantités dans le dictionnaire des produits.</p>
+
+                    <button class="btn btn-primary" hx-get="/td4/exercice2/tous_dispo" hx-trigger="click" hx-target="#ans5">Simuler la fonction 🔎</button>
+                
+            
+                    <div>
+                        <h5>Réponse</h5>
+                        <div id="ans5">(entrez une valeur ci-dessus)</div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+{% endblock %}

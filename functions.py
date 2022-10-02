@@ -165,3 +165,78 @@ def somme_chaine(s):
         return sum(lst_int)
     except Exception as e:
         return f"Erreur : {e}"
+
+
+def nb_max(L):
+    max = float('-inf')
+    occ = 0
+    list_max = []
+
+    for i in range(len(L)):
+        # Debug
+        # print(f"Je suis sur [{L[i]}] et il y a {occ} occurences du max actuel qui est {max}")
+
+        if L[i] > max:
+            max = L[i]
+            if max in list_max:
+                occ += 1
+            else:
+                occ = 1
+                continue
+
+        if L[i] == max:
+            occ +=1
+
+    return tuple([max, occ])
+
+
+def disponibilite1(prod, prix):
+    dic ={
+        "Sabre loser" : 229.0,
+        "Masque Icarré" : 15.90,
+        "Rubiks cube 7 couleurs" : 56.90,
+    }
+    return prod in dic.keys()
+
+def disponibilite2(prod, prix):
+    dic ={
+        "Sabre loser" : 229.0,
+        "Masque Icarré" : 15.90,
+        "Rubiks cube 7 couleurs" : 56.90,
+    }
+    if prod in dic.keys():
+        return prix == dic[prod]
+
+def generate_dic():
+    dic = {}
+    for i in range(random.randint(3,20)):
+        dic['Produit #'+str(i+1)] = random.randrange(1000000)
+    return dic
+
+
+def generate_cart():
+    dic = {}
+    for i in range(random.randint(2,40)):
+        dic['Produit #'+str(i+1)] = random.randrange(20)
+    return dic
+
+def prix_moyen(prix):
+    avg = round(sum(prix.values()) / len(prix.keys()))
+    return "dic = " + str(prix) + "<br><br>Prix moyen : " + str(avg)
+
+def fourchette_prix(mini, maxi, prix):
+    dic_chosen = []
+    for key, value in prix.items():
+        if mini < value < maxi:
+            dic_chosen.append(key)
+        
+    return "dic = " + str(prix) + f"<br><br><br>Produits dans la fourchette [{mini};{maxi}] :<br>" + str(dic_chosen)
+
+def tous_dispos(panier, prix):
+    flag = True
+
+    for key, value in panier.items():
+        if key not in prix.keys():
+            flag = False
+    
+    return "Prix = " + str(prix) + f"<br><br><br>Panier = " + str(panier) + f"<br><br>Tous les produits sont disponibles ?<br><b>{flag}<b>"

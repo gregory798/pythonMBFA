@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td4">TD4</a> / <a href="/td4/exercice3">Exercice 3</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Écrivez la fonction
+        <pre><code class="language-python">liste_produit(L)</code></pre>qui renvoie le produit des éléments d’une liste $\mathcal{L}$ de
+        nombres.</h5>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$\mathcal{L}$</span>
+            </div>
+            <input type="text" class="form-control"
+                placeholder="1,2,3,4,5" hx-get="/td3/exercice2/produit"
+                name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

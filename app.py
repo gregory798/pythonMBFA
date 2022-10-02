@@ -134,9 +134,86 @@ def td3e3():
 def td4():
     return render_template('td4.html')
 
-@app.route('/td2/exercice1')
-def td2e1():
-    return render_template('td2e1.html')
+
+@app.route('/td4/exercice1')
+def td4e1():
+    return render_template('td4e1.html')
+
+@app.route('/td4/exercice1/nb_max')
+def td4e1nb_max():
+    try:
+        q = request.args.get("q")
+        lst = q.split(",")
+        try:
+            lst_nb_max= []
+            for l in lst:
+                lst_nb_max.append(int(l))
+            return str(func.nb_max(lst_nb_max))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td4/exercice2')
+def td4e2():
+    return render_template('td4e2.html')
+
+@app.route('/td4/exercice2/dispo1')
+def td4e2dispo1():
+    try:
+        q = request.args.get("q")
+        prod_prix = q.split(",")
+        try:
+            prod= prod_prix[0]
+            prix= float(prod_prix[1])
+            return str(func.disponibilite1(prod, prix))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td4/exercice2/dispo2')
+def td4e2dispo2():
+    try:
+        q = request.args.get("q")
+        prod_prix = q.split(",")
+        try:
+            prod= prod_prix[0]
+            prix= float(prod_prix[1])
+            return str(func.disponibilite2(prod, prix))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
+@app.route('/td4/exercice2/prix_moyen')
+def td4e2prix_moyen():
+    prix = func.generate_dic()
+    return str(func.prix_moyen(prix))
+
+
+@app.route('/td4/exercice2/tous_dispo')
+def td4e2tous_dispo():
+    prix = func.generate_dic()
+    panier = func.generate_cart()
+    return str(func.tous_dispos(panier, prix))
+
+
+@app.route('/td4/exercice2/fourchette')
+def td4e2fourchette():
+    try:
+        q = request.args.get("q")
+        mini_maxi = q.split(",")
+        try:
+            mini = float(mini_maxi[0])
+            maxi = float(mini_maxi[1])
+            prix = func.generate_dic()
+            return str(func.fourchette_prix(mini, maxi, prix))
+        except Exception as e:
+            return f"Erreur : {e}"
+    except Exception as e:
+        return f"Erreur : {e}"
+
 
 @app.route('/td2/exercice2', methods=['GET', 'POST'])
 def td2e2():

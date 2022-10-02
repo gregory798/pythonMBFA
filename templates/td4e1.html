@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5">
+    <a href="/td4">TD4</a> / <a href="/td4/exercice1">Exercice 1</a>
+</div>
+
+<section class="mt-5 text-center">
+
+    <div class="card">    
+        <h5>Définir la fonction
+        <pre><code class="language-python">nb_max(L)</code></pre>qui, étant donné une liste $\mathcal{L}$ non vide de nombres, renvoie un
+        couple contenant le maximum de $\mathcal{L}$ et le nombre d’occurrences de celui-ci dans la liste $\mathcal{L}$.</h5>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">$\mathcal{L}$</span>
+            </div>
+            <input type="text" class="form-control"
+                placeholder="1,2,3,4,5" hx-get="/td4/exercice1/nb_max"
+                name="q" hx-trigger="keyup changed delay:500ms" hx-target="#ans1">
+        </div>
+
+        <div>
+            <h5>Réponse</h5>
+            <div id="ans1">(entrez une valeur ci-dessus)</div>
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}
