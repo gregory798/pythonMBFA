@@ -437,6 +437,10 @@ def td1e5():
 def td1e6():
     return render_template('td1e6.html')
 
+@app.route('/td2/exercice1')
+def td2e1():
+    return render_template('td2e1.html')
+
 @app.route('/td2/exercice1/s')
 def td2e1s():
     q = request.args.get("q")
